@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>SPA Chapter 1 section 1.2.2</title>
+	<link rel="stylesheet" href="test.css" type="text/css" />
+	<script src="jquery-1.7.1.js"></script>
+	<script>
+		var spa = (function ($) {
+			var configMap = {
+				extend_height: 434,
+				extend_title: 'click to retract',
+				retract_height: 16,
+				retract_title: 'click to extend',
+				template_html: '<div class="spa-slider"></div>'
+			},
+			$chatSlider,
+			toggleSlider,
+			onClickSlider,
+			initModule;
+			toggleSlider = function () {
+				var slider_height = $chatSlider.height();
+				if (slider_height === configMap.retract_height) {
+					$chatSlider
+				    .animate({
+				    	height: configMap.extend_height
+				    })
+					.attr('title', configMap.extend_title);
+					return true;
+				} else {
+					$chatSlider
+				    .animate({
+				    	height: configMap.retract_height
+				    })
+					.attr('title', configMap.retract_title);
+					return false;
+				}
+			};
+			onClickSlider = function (ev) {
+				toggleSlider();
+				return false;
+			};
+			initModule = function ($container) {
+				$container.html(configMap.template_html);
+				$chatSlider = $container.find('.spa-slider');
+				$chatSlider.attr('title', configMap.retract_title).click(onClickSlider);
+				return true;
+			};
+			return {
+				initModule: initModule
+			};
+		})(jQuery);
+		jQuery(document).ready(function () {
+			spa.initModule(jQuery('#spa'));
+		});
+	</script>
+</head>
+<body>
+	<div id="spa">
+		<div class="spa-slider"></div>
+	</div>
+</body>
+</html>

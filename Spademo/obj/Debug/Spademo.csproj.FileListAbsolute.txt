@@ -1,0 +1,5 @@
+D:\SPADEMO\Spademo\Spademo\bin\Spademo.dll
+D:\SPADEMO\Spademo\Spademo\bin\Spademo.pdb
+D:\SPADEMO\Spademo\Spademo\obj\Debug\Spademo.csprojResolveAssemblyReference.cache
+D:\SPADEMO\Spademo\Spademo\obj\Debug\Spademo.dll
+D:\SPADEMO\Spademo\Spademo\obj\Debug\Spademo.pdb
